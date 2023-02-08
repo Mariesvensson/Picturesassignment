@@ -1,0 +1,97 @@
+*{
+
+padding: 0px;
+margin: 0px;
+box-sizing: border-box;
+
+}
+
+body {
+
+    display: grid;
+    grid-template: 
+    "a a a"
+    "b b b "
+    "c c C"/ 1fr 1fr 1fr
+
+    ;
+ background-image: url(background.jpeg);
+ background-size: cover;
+
+    
+}
+
+header{
+
+    
+    grid-area: a;
+    
+    margin-left: 8rem ;
+    margin-right: 8rem;
+    padding: 2rem;
+    text-align: center;
+    font-family: monospace;
+    font-size: 50px;
+    background: rgba(255, 255, 255, 0.329);
+
+   
+    
+    
+
+
+}
+
+main {
+
+    grid-area: b;
+    margin-left: auto;
+    margin-right: auto;
+
+    
+
+    display: grid;
+
+    display: grid;
+    grid-template: 
+    "d "
+    "e "
+    "f "/ 1fr
+
+}
+
+#menu {
+
+    grid-area: d;
+   padding: 1rem;
+    margin-left: auto;
+    margin-right: auto;
+
+    
+}
+
+#input, #colors, #submit, #previousPage, #nextPage{
+
+    padding: 10px;
+    border: 0;
+    border-radius: 10px;
+    box-shadow:0 0 15px 4px rgba(0, 0, 0, 0.158);
+}
+
+section {
+
+    grid-area: e;
+    border: black 2px solid;
+    margin-left: auto;
+    margin-right: auto;
+    padding: 30px;
+   
+}
+
+#pagenavigation {
+
+    grid-area: f;
+    padding: 1rem;
+    margin-left: auto;
+    margin-right: auto;
+
+}
