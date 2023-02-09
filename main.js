@@ -5,6 +5,8 @@ form.onsubmit = async event => {
 
    event.preventDefault();
 
+   imgonpage.innerHTML = '';
+
    let input = form.input.value;
    let color = form.colors.value;
 
@@ -12,11 +14,25 @@ form.onsubmit = async event => {
 
    let response = await fetch(url);
    let json = await response.json();
+   console.log(json);
 
-   for (i = 0; i < json.lenght; i++) {
+   for (let imgrespons of json.hits) {
 
+      var imgelement = document.createElement('img');
+      var divelemnt = document.createElement('div');
+      var p = document.createElement('p');
+
+      divelemnt.classList.add('imgcontainer');
+      imgelement.classList.add('styleimg')
+
+      imgelement.src = imgrespons.webformatURL;
+
+      p.innerText = imgrespons.user;
+
+      divelemnt.appendChild(p);
+      divelemnt.appendChild(imgelement);
+      imgonpage.appendChild(divelemnt);
       
-     
 
 
    }
