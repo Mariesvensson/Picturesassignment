@@ -1,26 +1,26 @@
 let form = document.querySelector('#menu');
-let list = document.querySelector('#images')
+let imgonpage = document.querySelector('#img')
 
 form.onsubmit = async event => {
 
-event.preventDefault();
+   event.preventDefault();
 
-let input = form.input.value;
-let color = form.colors.value;
+   let input = form.input.value;
+   let color = form.colors.value;
 
-let url = 'https://pixabay.com/api/?key=33474684-1ead600a61d07e2bdfb2e093e&q='+ color + '+' + input +'&image_type=photo'
-let response = await fetch(url);
-let json = await response.json();
+   let url = 'https://pixabay.com/api/?key=33474684-1ead600a61d07e2bdfb2e093e&q=' + input + '&colors=$' + color + '&per_page=10'
 
-for (i=0; i < json.hits.lenght; i++){
+   let response = await fetch(url);
+   let json = await response.json();
 
-   let img = json.hits[i].pageURL
+   for (i = 0; i < json.lenght; i++) {
 
-   let listItem = document.createElement('li')
-  
-   list.append(img)
+      
+     
 
 
-}
+   }
+
+
 
 }
