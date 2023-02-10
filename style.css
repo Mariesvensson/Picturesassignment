@@ -33,16 +33,14 @@ header{
     font-family: monospace;
     font-size: 50px;
     background: rgba(255, 255, 255, 0.329);
-
 }
 
 main {
 
     grid-area: b;
-    margin-left: auto;
-    margin-right: auto;
-
-    
+    margin-left: 8rem;
+    margin-right: 8rem;
+    background-color: rgba(8, 8, 8, 0.192);
 
     display: grid;
 
@@ -54,24 +52,70 @@ main {
 }
 
 .styleimg {
-
+    
+    /* height: auto ;
+    width: 100%; */
    
+    max-width: 100%;
+    height: auto;
+    width: auto\9;
+
+    
+    
+    border:2px black solid;
+
 }
+
+.imgcontainer p {
+
+    display: flex;
+}
+
+
 
 .imgcontainer {
 
-    display: inline-block;
+   
+    padding: 10px;
     width: calc(100%/3);
+   
+    background-color: rgba(8, 8, 8, 0.315);
+    height: 300px;
+
+    display: inline-flex;
+    
+    /* flex-wrap: wrap */
+    
+    
 }
+/* 
+@media (max-width:1000px) {
+
+    #img {
+
+        display: grid;
+    }
+
+    .imgcontainer {
+
+        display: grid;
+        grid-area: a;
+
+        grid-template: 
+        ". a ."
+        ". a ."/ 1fr 1fr 1fr
+        ;
+    }
+    
+} */
 
 #menu {
 
     grid-area: d;
-   padding: 1rem;
+    padding: 1rem;
     margin-left: auto;
     margin-right: auto;
 
-    
 }
 
 #input, #colors, #submit, #previousPage, #nextPage{
@@ -85,7 +129,7 @@ main {
 section {
 
     grid-area: e;
-    border: black 2px solid;
+    
     margin-left: auto;
     margin-right: auto;
     padding: 30px;

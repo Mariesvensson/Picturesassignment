@@ -1,16 +1,21 @@
-let form = document.querySelector('#menu');
-let imgonpage = document.querySelector('#img')
+let imgSerchButton = document.querySelector('#menu');
+let imgSection = document.querySelector('#img')
 
-form.onsubmit = async event => {
+let imgCount = 0;
+
+
+
+imgSerchButton.onsubmit = async event => {
 
    event.preventDefault();
 
-   imgonpage.innerHTML = '';
+   imgSection.innerHTML = '';
 
-   let input = form.input.value;
-   let color = form.colors.value;
+   let input = imgSerchButton.input.value;
+   let color = imgSerchButton.colors.value;
 
-   let url = 'https://pixabay.com/api/?key=33474684-1ead600a61d07e2bdfb2e093e&q=' + input + '&colors=$' + color + '&per_page=10'
+
+   let url = 'https://pixabay.com/api/?key=33474684-1ead600a61d07e2bdfb2e093e&q=' + input + '&colors=' + color
 
    let response = await fetch(url);
    let json = await response.json();
@@ -29,14 +34,86 @@ form.onsubmit = async event => {
 
       p.innerText = imgrespons.user;
 
-      divelemnt.appendChild(p);
-      divelemnt.appendChild(imgelement);
-      imgonpage.appendChild(divelemnt);
-      
 
+      divelemnt.appendChild(imgelement);
+      divelemnt.appendChild(p);
+      imgSection.appendChild(divelemnt);
+
+      imgCount++;
+
+
+      if (imgCount == 10) {
+
+         break;
+      }
 
    }
 
+
+
+}
+
+let nextPageButton = document.querySelector('#pagenavigation')
+
+let pageNumber = 1;
+
+nextPageButton.onsubmit = async event => {
+
+   event.preventDefault();
+
+   removeElement();
+
+   let input = imgSerchButton.input.value;
+   let color = imgSerchButton.colors.value;
+
+   pageNumber++
+
+   imgCount = 0;
+
+   let url = 'https://pixabay.com/api/?key=33474684-1ead600a61d07e2bdfb2e093e&q=' + input + '&colors=' + color + '&page=' + pageNumber 
+
+   let response = await fetch(url);
+   let json = await response.json();
+   console.log(json);
+
+   for (let imgrespons of json.hits) {
+
+      var imgelement = document.createElement('img');
+      var divelemnt = document.createElement('div');
+      var p = document.createElement('p');
+
+      divelemnt.classList.add('imgcontainer');
+      imgelement.classList.add('styleimg')
+
+      imgelement.src = imgrespons.webformatURL;
+
+      p.innerText = imgrespons.user;
+
+
+      divelemnt.appendChild(imgelement);
+      divelemnt.appendChild(p);
+      imgSection.appendChild(divelemnt);
+
+      imgCount++;
+
+
+      if (imgCount == 10) {
+
+         break;
+      }
+
+   }
+
+}
+
+function removeElement(){
+
+   let divelementToRemove = document.querySelectorAll('.imgcontainer')
+
+   divelementToRemove.forEach(divElement => {
+
+      divElement.remove();
+   });
 
 
 }
