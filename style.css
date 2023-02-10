@@ -1,156 +1,106 @@
 *{
-
 padding: 0px;
 margin: 0px;
 box-sizing: border-box;
-
 }
 
 body {
-
     display: grid;
     grid-template: 
-    "a a a"
-    "b b b "
-    "c c C"/ 1fr 1fr 1fr
-
-    ;
+    "a"
+    "b"
+    "c"/ 1fr;
  background-image: url(background.jpeg);
  background-size: cover;
-
-    
+ background-repeat: no-repeat;
 }
 
 header{
-
-    
     grid-area: a;
-    
-    margin-left: 8rem ;
-    margin-right: 8rem;
+    margin-left: auto;
+    margin-right: auto;
     padding: 2rem;
     text-align: center;
     font-family: monospace;
     font-size: 50px;
-    background: rgba(255, 255, 255, 0.329);
+    background: rgba(8, 8, 8, 0.192);
+    width: 80%;
 }
 
 main {
-
     grid-area: b;
-    margin-left: 8rem;
-    margin-right: 8rem;
+    margin-left: auto;
+    margin-right: auto;
     background-color: rgba(8, 8, 8, 0.192);
-
-    display: grid;
-
+    width: 80%;
     display: grid;
     grid-template: 
-    "d "
-    "e "
-    "f "/ 1fr
+    "d"
+    "e"
+    "f"/ 1fr
+}
+
+footer{
+    grid-area: c;
+    margin-left: auto;
+    margin-right: auto;
+    background-color: rgba(8, 8, 8, 0.192);
+    text-align: right;
+    font-size: 12px;
+    width: 80%;
 }
 
 .styleimg {
-    
-    /* height: auto ;
-    width: 100%; */
-   
-    max-width: 100%;
-    height: auto;
-    width: auto\9;
-
-    
-    
+    width: 250px;
+    height: 250px;
     border:2px black solid;
-
 }
 
 .imgcontainer p {
-
-    display: flex;
+    color: white;
+    text-align: center;
 }
-
-
 
 .imgcontainer {
-
-   
     padding: 10px;
-    width: calc(100%/3);
-   
-    background-color: rgba(8, 8, 8, 0.315);
-    height: 300px;
-
-    display: inline-flex;
-    
-    /* flex-wrap: wrap */
-    
-    
+    display: inline-grid;
+    align-items: center;
 }
-/* 
-@media (max-width:1000px) {
-
-    #img {
-
-        display: grid;
-    }
-
-    .imgcontainer {
-
-        display: grid;
-        grid-area: a;
-
-        grid-template: 
-        ". a ."
-        ". a ."/ 1fr 1fr 1fr
-        ;
-    }
-    
-} */
 
 #menu {
-
     grid-area: d;
     padding: 1rem;
     margin-left: auto;
     margin-right: auto;
-
 }
 
 #input, #colors, #submit, #previousPageButton, #nextPageButton{
-
     padding: 10px;
     border: 0;
     border-radius: 10px;
     box-shadow:0 0 15px 4px rgba(0, 0, 0, 0.158);
     margin: 10px;
-    
 }
 
 button:hover{
-
     background-color: rgba(0, 0, 0, 0.178);
-    
 }
 
-section {
-
+#img {
     grid-area: e;
-    
-    margin-left: auto;
-    margin-right: auto;
-    padding: 30px;
-   
+    margin: 2rem;
+    background-color: rgba(8, 8, 8, 0.315);
 }
 
 #buttons{
-
     display: inline-flex;
-    
     grid-area: f;
     padding: 1rem;
     margin-left: auto;
     margin-right: auto;
-
+}
+@media (max-width: 1000px){
+    main, header{
+        width: 100%;
+    }
 }
