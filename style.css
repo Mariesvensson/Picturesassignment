@@ -118,12 +118,20 @@ main {
 
 }
 
-#input, #colors, #submit, #previousPage, #nextPage{
+#input, #colors, #submit, #previousPageButton, #nextPageButton{
 
     padding: 10px;
     border: 0;
     border-radius: 10px;
     box-shadow:0 0 15px 4px rgba(0, 0, 0, 0.158);
+    margin: 10px;
+    
+}
+
+button:hover{
+
+    background-color: rgba(0, 0, 0, 0.178);
+    
 }
 
 section {
@@ -136,8 +144,10 @@ section {
    
 }
 
-#pagenavigation {
+#buttons{
 
+    display: inline-flex;
+    
     grid-area: f;
     padding: 1rem;
     margin-left: auto;
