@@ -64,7 +64,6 @@ footer{
 .imgcontainer {
     padding: 10px;
     display: inline-grid;
-    align-items: center;
 }
 
 #menu {
@@ -90,6 +89,9 @@ button:hover{
     grid-area: e;
     margin: 2rem;
     background-color: rgba(8, 8, 8, 0.315);
+    text-align: center;
+    padding-top: 2rem;
+    padding-bottom: 2rem;
 }
 
 #buttons{
