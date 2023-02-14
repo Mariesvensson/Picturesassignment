@@ -85,6 +85,10 @@ button:hover{
     background-color: rgba(0, 0, 0, 0.178);
 }
 
+#buttons{
+    visibility: hidden;
+}
+
 #img {
     grid-area: e;
     margin: 2rem;
