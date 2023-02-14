@@ -46,9 +46,7 @@ imgSerchButton.onsubmit = async event => {
 
       imgCount++;
 
-      if (imgCount == 10) {
-         break;
-      }
+     
    }
 }
 
@@ -106,9 +104,7 @@ async function pageSelector() {
 
       imgCount++;
 
-      if (imgCount == 10) {
-         break;
-      }
+     
    }
    if (imgCount < 10) {
       document.getElementById('nextPageButton').style.visibility = 'hidden';
