@@ -18,17 +18,11 @@ imgSerchButton.onsubmit = async event => {
    let json = await response.json();
    totalHits = json.totalHits;
    document.getElementById("nextPageButton").checked = true;
+   document.getElementById("previousPageButton").style.display = "grid";
+   document.getElementById("nextPageButton").style.display = "grid";
 
    GetImages(url);
    ButtonVisibililty();
-   // if (pageNumber != 1) {
-   //    document.getElementById('previousPageButton').style.visibility = 'visible';
-   //    document.getElementById('nextPageButton').style.visibility = 'visible';
-   // }
-   // else {
-   //    document.getElementById('previousPageButton').style.visibility = 'hidden';
-   //    document.getElementById('nextPageButton').style.visibility = 'visible';
-   // }
 }
 
 function ButtonVisibililty(){
@@ -40,44 +34,28 @@ function ButtonVisibililty(){
       document.getElementById('previousPageButton').style.visibility = 'visible';
       document.getElementById('nextPageButton').style.visibility = 'visible';
    }
-   else if(totalHits < 10){
+   else if(totalHits <= 10){
       document.getElementById('previousPageButton').style.visibility = 'visible';
       document.getElementById('nextPageButton').style.visibility = 'hidden';
    }
-   // if (pageNumber != 1) {
-   //    document.getElementById('previousPageButton').style.visibility = 'visible';
-   //    document.getElementById('nextPageButton').style.visibility = 'visible';
-   // }
-   // else {
-   //    document.getElementById('previousPageButton').style.visibility = 'hidden';
-   //    document.getElementById('nextPageButton').style.visibility = 'visible';
-   // }
 }
 
 function previousPageSelector(){
    pageNumber--
-   // ButtonVisibililty();
-   // if (pageNumber != 1) {
-   //    document.getElementById('previousPageButton').style.visibility = 'visible';
-   //    document.getElementById('nextPageButton').style.visibility = 'visible';
-   // }
    
    document.getElementById("previousPageButton").checked = true;
    document.getElementById("nextPageButton").checked = false;
    pageSelector()
-//    ButtonVisibililty();
+   ButtonVisibililty();
+   document.getElementById('nextPageButton').style.visibility = 'visible';
 }
 
 function nextPageSelector() {
    pageNumber++
-   // ButtonVisibililty();
-   // if (pageNumber != 1) {
-   //    document.getElementById('previousPageButton').style.visibility = 'visible';
-   // }
    document.getElementById("previousPageButton").checked = false;
    document.getElementById("nextPageButton").checked = true;
    pageSelector()
-   // ButtonVisibililty();
+   ButtonVisibililty();
 }
 
 async function GetImages(url){
@@ -121,14 +99,6 @@ async function pageSelector() {
    let url = 'https://pixabay.com/api/?key=33474684-1ead600a61d07e2bdfb2e093e&q=' + input + '&colors=' + color + '&page=' + pageNumber + '&per_page=10'
 
    GetImages(url);
-
-   ButtonVisibililty();
-   // if (totalHits <= 10) {
-   //    document.getElementById('nextPageButton').style.visibility = 'hidden';
-   // }
-   // else{
-   //    document.getElementById('nextPageButton').style.visibility = 'visible';
-   // }
 }
 
 function removeElement() {
