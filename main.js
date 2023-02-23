@@ -46,7 +46,7 @@ function previousPageSelector(){
    pageNumber--
    pageSelector()
    ButtonVisibililty();
-   // document.getElementById('nextPageButton').style.visibility = 'visible';
+   
 }
 
 function nextPageSelector() {
