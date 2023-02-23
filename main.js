@@ -6,6 +6,7 @@ let input;
 let color;
 let totalHits;
 let imgrespons;
+let roundNumberOfPages;
 
 imgSerchButton.onsubmit = async event => {
    event.preventDefault();
@@ -20,7 +21,8 @@ imgSerchButton.onsubmit = async event => {
    document.getElementById("nextPageButton").checked = true;
    document.getElementById("previousPageButton").style.display = "grid";
    document.getElementById("nextPageButton").style.display = "grid";
-
+    let getNumberOfPages = totalHits/10;
+    roundNumberOfPages = Math.ceil(getNumberOfPages)
    GetImages(url);
    ButtonVisibililty();
 }
@@ -30,11 +32,11 @@ function ButtonVisibililty(){
       document.getElementById('previousPageButton').style.visibility = 'hidden';
       document.getElementById('nextPageButton').style.visibility = 'visible';
    }
-   else if(pageNumber != 1 && totalHits > 10){
+   else if(pageNumber != 1 && pageNumber !=  roundNumberOfPages){
       document.getElementById('previousPageButton').style.visibility = 'visible';
       document.getElementById('nextPageButton').style.visibility = 'visible';
    }
-   else if(totalHits <= 10){
+   else if( roundNumberOfPages == pageNumber){
       document.getElementById('previousPageButton').style.visibility = 'visible';
       document.getElementById('nextPageButton').style.visibility = 'hidden';
    }
@@ -42,18 +44,13 @@ function ButtonVisibililty(){
 
 function previousPageSelector(){
    pageNumber--
-   
-   document.getElementById("previousPageButton").checked = true;
-   document.getElementById("nextPageButton").checked = false;
    pageSelector()
    ButtonVisibililty();
-   document.getElementById('nextPageButton').style.visibility = 'visible';
+   // document.getElementById('nextPageButton').style.visibility = 'visible';
 }
 
 function nextPageSelector() {
    pageNumber++
-   document.getElementById("previousPageButton").checked = false;
-   document.getElementById("nextPageButton").checked = true;
    pageSelector()
    ButtonVisibililty();
 }
@@ -61,9 +58,7 @@ function nextPageSelector() {
 async function GetImages(url){
    let response = await fetch(url);
    let json = await response.json();
-   let checkPrevious = document.getElementById('previousPageButton').checked;
-   let checkNext = document.getElementById('nextPageButton').checked;
-
+ 
    console.log(json);
 
    for (let imgrespons of json.hits) {
@@ -83,12 +78,7 @@ async function GetImages(url){
       divelemnt.appendChild(p);
       divelemnt.appendChild(pTags);
       imgSection.appendChild(divelemnt);
-      if(checkPrevious == true){
-         totalHits++
-      }
-      else if(checkNext == true){
-         totalHits--
-      }
+    
    }
 }
 
